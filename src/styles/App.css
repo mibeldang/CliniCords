@@ -1,0 +1,270 @@
+.App {
+  text-align: center;
+  /* background-image: url("..//assets/backgrnd.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+  
+
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+label {
+  margin-left: 130px;
+}
+.p-button-size {
+  width: 100%;
+}
+.p-button-text {
+  color: black;
+  font-family: ubuntu;
+  -webkit-backdrop-filter: blur();
+  -webkit-filter: drop-shadow();
+}
+
+.add-card {
+  width: 90%;
+  z-index: 2;
+  margin: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://onlinenewsguru.com/wp-content/uploads/2019/10/istockphoto-866772230-612x612.jpg");
+}
+.wt-100 {
+  width: 100%;
+}
+InputText {
+  background: transparent !important;
+  border: none !important;
+}
+#input {
+  border-radius: 10px;
+  border: 3px solid #555;
+  /* background-color: rgba(89, 199, 153, 0.233);
+     */
+}
+.dropdown {
+  border-radius: 10px !important;
+  border: 3px solid #555 !important;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+  width: 100%;
+}
+
+.dialog {
+  width: 50%;
+  text-align: justify !important;
+}
+.block {
+  width: 100%;
+}
+#heads{
+  margin-left: -70%;
+  margin-right: -88%;
+}
+#heads1{
+  margin-left: -40%;
+  margin-right: -88%;
+}
+#adminhead{
+  margin-left: -100%;
+  margin-right: -88%;
+}
+#sex {
+  margin-right: 10px;
+}
+#status {
+  margin-left: 10px;
+}
+#card {
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("..//assets/login.jpg");
+  box-shadow: 0 4px 10px 0 rgba(0,0,0.3,0.6);
+}
+.p-card-body{
+  box-shadow: 0 4px 10px 0 rgba(0,0,0.3,0.6) !important ;
+}
+.title-text {
+  font-family: fantasy;
+  font-size: 50px;
+}
+
+#segment {
+  border-radius: 0px;
+  background-color: 1px 5px #09d3ac;
+}
+.recpan {
+  text-align: justify;
+
+}
+.p-panel-titlebar {
+  background: linear-gradient(
+    to bottom right,
+    #66ffff 41%,
+    #00ffcc 100%
+  ) !important;
+}
+.mydecor {
+  text-decoration: underline;
+  color:rgb(24, 119, 148);
+  font-family: fantasy;
+  font-size: 50px;
+}
+.Login {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("..//assets/backgrnd.jpg");
+}
+.login-card {
+  width: 45%;
+  margin: auto;
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  background: transparent !important;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  border: solid 0.5px black;
+  background-image:url('https://onlinenewsguru.com/wp-content/uploads/2019/10/istockphoto-866772230-612x612.jpg' )
+}
+#logimg {
+  background-image: url("..//assets/login.jpg");
+  background-size: cover;
+  height: 250px;
+  width: 100%;
+}
+#joke{
+  widows: 90%;
+}
+.inpLogin {
+  
+  width: 100% !important;
+}
+#log-form {
+    margin-top: 10%;
+    position: relative;
+}
+.myinp {
+  width: 100%;
+}
+.tranparent {
+  background: transparent !important;
+}
+#log-title {
+  position: relative;
+  top: 10%;
+  font-size: 50px;
+  font-weight: bolder;
+  font-family: fantasy;
+  font-size: 50px;
+
+}
+#btnLogin {
+  border: 2px solid;
+  font-size: 30px;
+  letter-spacing: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+#segment-btn{
+  width: auto;
+  
+}
+#segment{
+  border-radius:10px ;
+}
+.addrecord{
+  width: 50%;
+}
+
+#card_user{
+  position: relative;
+  width:50%;
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-image: url("..//assets/login.jpg");
+  background-size: cover;
+  background-repeat:no-repeat; 
+  z-index: 2;
+}
+#input_user{
+  width:100%;
+}
+.hheader{
+  background-color: rgb(21, 240, 211);
+  box-shadow: 1px 5px #888888;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.red{
+  color: red;
+}
+#reminder {
+  position: relative;
+  margin-top:20%;
+  margin-left: 50%;
+  text-align: center;
+}
+h1{
+  color:rgb(24, 119, 148);
+  text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #000;
+}
+#modal{
+  height:60%;
+  top:15%;
+
+  margin-left:8%;
+  margin-right: 5%;
+}
+#inputsearch{
+  background-color:white;
+}
+body .p-datatable .p-datatable-header{
+  background-color: rgba(46, 233, 220, 0.864) !important;
+}
+.emercontact{
+  font-family: Ubuntu;
+  font-size: 25px;
+  color: #2c7edb;
+}
+.outlined{
+  text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #000;
+}
+#recedit{
+  width:100%;
+}
