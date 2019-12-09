@@ -4,6 +4,7 @@ import { Redirect,Link } from "react-router-dom";
 import { Card, Form, Segment, Button, Icon } from "semantic-ui-react";
 import req from "../helper/api";
 
+//Update user Information
 export default class CreateTodo extends Component {
   constructor(props) {
     super(props);
@@ -78,6 +79,7 @@ export default class CreateTodo extends Component {
     }
 
   }
+  //Updating for users
   async updateForUsers(e){
     e.preventDefault()
     const body = {
@@ -129,6 +131,7 @@ export default class CreateTodo extends Component {
   };
 
   render() {
+    //Admin Home
     if (this.state.toAdminHome === true) {
       return <Redirect to="/admin" />
     }

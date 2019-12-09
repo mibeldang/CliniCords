@@ -6,6 +6,8 @@ import req from "../helper/api";
 import "semantic-ui-css/semantic.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AddedRecords from './AddedRecords'
+
+//Clinical record Form
 export default class Records extends Component {
   constructor(props) {
     super(props);
@@ -228,6 +230,7 @@ export default class Records extends Component {
   handleCancel = () => {
     this.setState({ visible: true });
   };
+  //Foreach record
   openEdit = (passID) => {
 
     this.state.medRecords.forEach(record => {
@@ -246,18 +249,22 @@ export default class Records extends Component {
   // }
 
   render() {
+
     if (this.state.toHome === true) {
       return <Redirect to="/home" />;
     }
+    //Cancel and Save Button for editing the medical Record
     var modalButtons = this.state.editingRecord ? (<div><Button negative onClick={e => this.setState({ open: false })}><Icon name='remove' /> Cancel</Button> <Button positive icon="checkmark" labelPosition="right" content="Update" onClick={this.editForRecords} /></div>) : (
       <div><Button negative onClick={e => this.setState({ open: false })}><Icon name='remove' /> Cancel</Button>
         <Button positive icon="checkmark" labelPosition="right" content="Save" onClick={this.handleSaveMed} /></div>)
     const { open, size } = this.state;
+    //Clinical Record Form
     const pageTitle = this.state.updating ? (
       <h1 className="title-text">Clinical Record Form</h1>
     ) : (
         <h1 className="title-text">Patient Information</h1>
       );
+      //Mapping all the medical records
     const allmedicalrecords = this.state.medRecords.map(element =>
       <div><AddedRecords onClick={this.openEdit} record={element} /><br /></div>);
     //add medical records
@@ -289,6 +296,8 @@ export default class Records extends Component {
             </Modal>
           </Container>
         </div><br />
+        
+        {/* //Updating or Cancelling of medical condition */}
         <Segment id="segment" inverted color='teal'>
           <Button id="segment-btn" basic inverted color="teal" onClick={this.handleSubmit}> Update </Button>
           <Link to="home">

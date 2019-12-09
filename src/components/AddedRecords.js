@@ -5,7 +5,7 @@ import { Icon } from "semantic-ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container,Row,Col,Button } from "react-bootstrap";
 
-
+//Add Medical records
 export default class AddedRecords extends Component {
   
   componentDidMount(){

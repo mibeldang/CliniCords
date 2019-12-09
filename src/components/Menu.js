@@ -13,6 +13,8 @@ import { Redirect } from "react-router-dom";
 import logo from "..//assets/logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
+
+//Shows the current patients table
 export default class Menu extends Component {
   constructor() {
     super();

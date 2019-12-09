@@ -10,6 +10,7 @@ import req from "../helper/api";
 import { Icon } from "semantic-ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+//Adding of User
 export default class Admin extends Component {
   constructor(props) {
     super(props);
@@ -92,6 +93,7 @@ export default class Admin extends Component {
     if (this.state.isNotAllowed === true) {
       return <Redirect to={{ pathname: "/" }} />;
     }
+    //Condition for updating user
     if (this.state.toUpdate === true) {
       return (
         <Redirect
@@ -99,9 +101,11 @@ export default class Admin extends Component {
         />
       );
     }
+    //Condition for adding user
     if (this.state.toAddUser === true) {
       return <Redirect to={{ pathname: "/create" }} />;
     }
+    //Table for List of Users
     let header = (
       <div>
         <div style={{ lineHeight: "1.87em" }}>

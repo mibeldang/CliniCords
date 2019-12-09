@@ -3,10 +3,11 @@ import { Button } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import { Card } from "primereact/card";
 import { Input, Icon } from "semantic-ui-react";
-import {Modal} from "semantic-ui-react";
+import { Modal } from "semantic-ui-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import req from "../helper/api";
 
+//Homepage and Admin Page
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -24,16 +25,16 @@ export default class Login extends Component {
       bfchangepass: true,
       changingpass: false,
       afchangepass: false,
-      newpassone:"",
-      newpasstwo:"",
-      id:null,
+      newpassone: "",
+      newpasstwo: "",
+      id: null,
       modalOpen: false,
       notifiaction: "PLEASE LOGIN WITH YOUR NEW PASSWORD"
     };
   }
   handleOpen = () => this.setState({ modalOpen: true })
 
-  handleClose = () => this.setState({ modalOpen: false, notifiaction: "PLEASE LOGIN WITH YOUR NEW PASSWORD"})
+  handleClose = () => this.setState({ modalOpen: false, notifiaction: "PLEASE LOGIN WITH YOUR NEW PASSWORD" })
 
   handleEyeClick = () => {
     if (this.state.hidden) {
@@ -56,6 +57,7 @@ export default class Login extends Component {
       this.setState({ eyeIcon2: "eye slash", hidden2: true });
     }
   };
+  //Function for 
   handleLogin = (event) => {
     event.preventDefault();
     let body = { username: this.state.username, password: this.state.password };
@@ -63,26 +65,30 @@ export default class Login extends Component {
       .login(body)
       .then(resp => {
         if (resp.data.status) {
+          //To admin page
           if (resp.data.user.isAdmin) {
             localStorage.setItem("isAdmin", "true");
             this.setState({ toAdmin: true });
           } else {
-            if(resp.data.user.haschange){
+            //To Home Page
+            if (resp.data.user.haschange) {
               localStorage.setItem("isAdmin", "false");
               this.setState({ toHome: true });
-            }else{
-              if(this.state.bfchangepass){
-                this.setState({changingpass: true,bfchangepass:false})
-              }else if(this.state.changingpass){
-                if (this.state.newpassone===this.state.newpasstwo && this.state.newpassone!=""){
-                  let body = {username: this.username, password: this.state.newpassone, haschange:true}
-                  req.updatePass(resp.data.user._id, body).then(respo=>{
-                    if(respo.data.status){
-                      this.setState({notifiaction: "PLEASE LOGIN WITH YOUR NEW PASSWORD", afchangepass:true, username:"", password:"",changingpass:false, modalOpen:true, hidden:true, eyeIcon: 'eye slash'})
-                    }else{
-                      console.log("sms: ",respo.data.sms);
+            } else {
+              //changing pass
+              if (this.state.bfchangepass) {
+                this.setState({ changingpass: true, bfchangepass: false })
+              } else if (this.state.changingpass) {
+                //new pass
+                if (this.state.newpassone === this.state.newpasstwo && this.state.newpassone != "") {
+                  let body = { username: this.username, password: this.state.newpassone, haschange: true }
+                  req.updatePass(resp.data.user._id, body).then(respo => {
+                    if (respo.data.status) {
+                      this.setState({ notifiaction: "PLEASE LOGIN WITH YOUR NEW PASSWORD", afchangepass: true, username: "", password: "", changingpass: false, modalOpen: true, hidden: true, eyeIcon: 'eye slash' })
+                    } else {
+                      console.log("sms: ", respo.data.sms);
                     }
-                  }).catch(err=>{
+                  }).catch(err => {
                     console.log(err)
                   })
                 }
@@ -90,7 +96,7 @@ export default class Login extends Component {
             }
           }
         } else {
-          this.setState({notifiaction: resp.data.sms,modalOpen: true})
+          this.setState({ notifiaction: resp.data.sms, modalOpen: true })
           //alert(resp.data.sms);
         }
       })
@@ -106,28 +112,30 @@ export default class Login extends Component {
     if (this.state.toAdmin) {
       return <Redirect to="/admin" />;
     }
-    var label = this.state.changingpass?("Change your password"):("")
-    const btnChanging = this.state.changingpass? ("SAVE"):("LOGIN")
-    const newPassInput = this.state.changingpass?(<div>
+    //Password change area
+    var label = this.state.changingpass ? ("Change your password") : ("")
+    const btnChanging = this.state.changingpass ? ("SAVE") : ("LOGIN")
+    const newPassInput = this.state.changingpass ? (<div>
       <Input
-      className="inpLogin"
-      value={this.state.newpassone}
-      type={this.state.hidden1 ? "password" : "text"}
-      icon={<Icon name={this.state.eyeIcon1} link onClick={this.handleEyeClickpass1} />}
-      size="large"
-      placeholder="Password"
-      onChange={e => this.setState({ newpassone: e.target.value })}
-    /><br/><br/>
-    <Input
-    className="inpLogin"
-    value={this.state.newpasstwo}
-    type={this.state.hidden2 ? "password" : "text"}
-    icon={<Icon name={this.state.eyeIcon2} link onClick={this.handleEyeClickpass2} />}
-    size="large"
-    placeholder="Password"
-    onChange={e => this.setState({ newpasstwo: e.target.value })}
-  /><br/><br/></div>):(<div></div>)
+        className="inpLogin"
+        value={this.state.newpassone}
+        type={this.state.hidden1 ? "password" : "text"}
+        icon={<Icon name={this.state.eyeIcon1} link onClick={this.handleEyeClickpass1} />}
+        size="large"
+        placeholder="Password"
+        onChange={e => this.setState({ newpassone: e.target.value })}
+      /><br /><br />
+      <Input
+        className="inpLogin"
+        value={this.state.newpasstwo}
+        type={this.state.hidden2 ? "password" : "text"}
+        icon={<Icon name={this.state.eyeIcon2} link onClick={this.handleEyeClickpass2} />}
+        size="large"
+        placeholder="Password"
+        onChange={e => this.setState({ newpasstwo: e.target.value })}
+      /><br /><br /></div>) : (<div></div>)
     return (
+
       <div className="Login">
         <div className="login-card">
           <div id="logimg">
@@ -181,26 +189,26 @@ export default class Login extends Component {
             </div>
           </Card>
           <Modal
-        open={this.state.modalOpen}
-        onClose={this.handleClose}
-        basic
-      >
-      
-        <div id="reminder">
-        <center>
-          <h4>Reminder</h4>
-          <h3>{this.state.notifiaction}</h3>
-          </center>
-          </div>
-        <Modal.Actions>
-          <Button variant="outline-success"  onClick={this.handleClose} inverted>
-            <Icon name='checkmark' /> Got it
+            open={this.state.modalOpen}
+            onClose={this.handleClose}
+            basic
+          >
+
+            <div id="reminder">
+              <center>
+                <h4>Reminder</h4>
+                <h3>{this.state.notifiaction}</h3>
+              </center>
+            </div>
+            <Modal.Actions>
+              <Button variant="outline-success" onClick={this.handleClose} inverted>
+                <Icon name='checkmark' /> Got it
           </Button>
-        </Modal.Actions>
-      
-      </Modal>
+            </Modal.Actions>
+
+          </Modal>
         </div>
-        
+
       </div>
     );
   }
